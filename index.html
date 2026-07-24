@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vote Age Checker</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #111;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      background: #222;
+      padding: 30px;
+      border-radius: 15px;
+      width: 320px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0,255,255,0.3);
+    }
+
+    h2 {
+      color: aqua;
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      outline: none;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      background: deepskyblue;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: dodgerblue;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h2>🗳️ Vote Age Checker</h2>
+
+    <input type="number" id="ageInput" placeholder="Enter your age">
+
+    <button onclick="checkVote()">Check Eligibility</button>
+
+    <p id="result"></p>
+
+  </div>
+
+  <script>
+
+    function checkVote() {
+
+      let input = document.getElementById("ageInput").value;
+      let result = document.getElementById("result");
+
+      // Check if input is empty
+      if (input === "") {
+        result.innerText = "⚠️ Please enter your age";
+        result.style.color = "orange";
+        return;
+      }
+
+      let age = Number(input);
+
+      if (age >= 18) {
+        result.innerText = "✅ You are eligible to vote";
+        result.style.color = "lime";
+      }
+
+      else if (age > 0) {
+        result.innerText = "❌ You are not eligible to vote";
+        result.style.color = "red";
+      }
+
+      else {
+        result.innerText = "⚠️ Please enter a valid age";
+        result.style.color = "orange";
+      }
+
+    }
+
+  </script>
+
+</body>
+
+</html>
